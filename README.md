@@ -19,3 +19,9 @@ WORK IN PROGRESS...
 - Users cannot register with invalid email
 - Users cannot register with invalid password
 - Users cannot register with the same email address again
+
+## API Endpoints
+### Registration
+- POST api/register
+    - 201 if successful, return ID of the registered user
+    - 400 if validation fails
