@@ -28,21 +28,62 @@ WORK IN PROGRESS...
 - Logged in users can log out
 - Unauthenticated users cannot log out
 
+## Items Tests
+- Unauthenticated users cannot create items
+- Requests with invalid tokens cannot create items
+- Authenticated users can create items
+- Authenticated users can get a list of their items
+- Authenticated users can view their items
+- Authenticated users cannot view items that belong to other users
+- Authenticated users can delete their items
+- Authenticated users cannot delete items that belong to other users
+- Authenticated users can update their items
+- Authenticated users cannot update items that belong to other users
+
 ## API Endpoints
 ### Registration
 - POST api/register
     - 201 Success, return ID of the registered user
-    - 400 Validation fails
+    - 400 Validation failed
 
 ### Login
 - POST api/login
-    - 401 Credentials do not match a user
     - 200 Success, return token of the logged in user
+    - 401 Credentials do not match a user
 
 - GET api/user
-    - 401 User is not authenticated
     - 200 Success, return email of the logged in user
+    - 401 User is not authenticated
 
 - POST api/logout
-    - 401 User is not authenticated
     - 204 Success
+    - 401 User is not authenticated
+
+### Items
+- POST api/items
+    - 201 Success, return ID of the item
+    - 401 User is not authenticated
+    - 400 Validation failed
+
+- GET api/items
+    - 200 Success, return list of items
+    - 401 User is not authenticated
+
+- GET api/items/{ID}
+    - 200 Success, return item
+    - 401 User is not authenticated
+    - 403 User is not authorized
+    - 404 Item cannot be found
+
+- DELETE api/items/{ID}
+    - 204 Success
+    - 401 User is not authenticated
+    - 403 User is not authorized
+    - 404 Item cannot be found
+
+- PUT api/items/{ID}
+    - 204 Success
+    - 400 Validation failed
+    - 401 User is not authenticated
+    - 403 User is not authorized
+    - 404 Item cannot be found
