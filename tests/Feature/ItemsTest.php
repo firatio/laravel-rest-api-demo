@@ -224,8 +224,9 @@ class ItemsTest extends TestCase
         $itemId = $this->user1_items[0]->id;
         $this->withHeaders(['Authorization' => "Bearer $token"])
             ->putJson("api/items/$itemId", $payload)
-            ->assertStatus(204)
-            ->assertEquals($payload['notes'], Item::find($itemId)->notes);
+            ->assertStatus(204);
+
+        $this->assertEquals($payload['notes'], Item::find($itemId)->notes);
     }
 
     /**

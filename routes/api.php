@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\AuthenticationController;
+use App\Http\Controllers\API\ItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,6 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/logout', [AuthenticationController::class, 'logout']);
     Route::get('/user', [AuthenticationController::class, 'show']);
     Route::get('/me', [AuthenticationController::class, 'show']);
+
+    Route::apiResource('items', ItemsController::class);
 });
