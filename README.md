@@ -87,3 +87,40 @@ WORK IN PROGRESS...
     - 401 User is not authenticated
     - 403 User is not authorized
     - 404 Item cannot be found
+
+## Installation
+It is assumed that you are familiar with git, Laravel and MySQL setup and usage.
+
+### Requirements
+- Git
+- PHP 7.3+ (with mysqli and pdo_mysql)
+- MySQL 5.7+
+- Composer
+
+### Steps
+1. Download the project to your preferred folder:
+```
+git clone https://github.com/firatio/laravel-rest-api-demo.git
+```
+
+2. Create a MySQL database for the application
+ 
+3. Go to the project folder and install Laravel by running:
+```
+composer install
+```
+
+4. Create an .env file using .env.example file
+
+5. Update .env file by configuring database information: database host, name and user information
+
+6. Create an application key
+```
+php artisan key:generate
+```
+
+## Usage
+Run the tests
+```
+./vendor/bin/phpunit
+```
