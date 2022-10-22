@@ -119,6 +119,11 @@ composer install
 php artisan key:generate
 ```
 
+7. Run migrations
+```
+php artisan migrate
+```
+
 ## Usage
 Run the tests
 ```
