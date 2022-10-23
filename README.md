@@ -1,8 +1,6 @@
 # REST API Demo with Laravel
 This is a simple demonstration of test-driven development of a REST API with Laravel 8.
 
-WORK IN PROGRESS...
-
 ## A simple shopping list API
 - Register a user with email and password
 - Log in a user with email and password
