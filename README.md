@@ -125,7 +125,17 @@ php artisan migrate
 ```
 
 ## Usage
-Run the tests
+
+1. Run the tests
 ```
 ./vendor/bin/phpunit
 ```
+
+2. You can also use the <b>curl</b> command  or an application like <b>Postman</b> to interact with the API
+- Start the server
+
+```
+php artisan serve
+```
+
+- Use <b>curl</b> or <b>Postman</b> to send requests to the server
