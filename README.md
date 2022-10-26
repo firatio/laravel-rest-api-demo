@@ -44,10 +44,28 @@ This is a simple demonstration of test-driven development of a REST API with Lar
     - 201 Success, return ID of the registered user
     - 400 Validation failed
 
+```bash
+curl -v -X POST http://localhost:8000/api/register \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"email": "joe@example.com",
+	"password": "strongpassword"
+  }'
+```
+
 ### Login
 - POST api/login
     - 200 Success, return token of the logged in user
     - 401 Credentials do not match a user
+
+```bash
+curl -v -X POST http://localhost:8000/api/login \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"email": "joe@example.com",
+	"password": "strongpassword"
+  }'
+```
 
 - GET api/user
     - 200 Success, return email of the logged in user
@@ -62,6 +80,16 @@ This is a simple demonstration of test-driven development of a REST API with Lar
     - 201 Success, return ID of the item
     - 401 User is not authenticated
     - 400 Validation failed
+
+```bash
+curl -v -X POST http://localhost:8000/api/items \
+  -H 'Authorization: Bearer AUTHTOKEN' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"name": "Milk",
+	"notes": "2 bottles"
+  }'
+```
 
 - GET api/items
     - 200 Success, return list of items
@@ -85,6 +113,16 @@ This is a simple demonstration of test-driven development of a REST API with Lar
     - 401 User is not authenticated
     - 403 User is not authorized
     - 404 Item cannot be found
+
+```bash
+curl -v -X POST http://localhost:8000/api/items/{ID} \
+  -H 'Authorization: Bearer AUTHTOKEN' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"name": "Milk",
+	"notes": "3 bottles"
+  }'
+```
 
 ## Installation
 It is assumed that you are familiar with git, Laravel and MySQL setup and usage.
