@@ -115,7 +115,7 @@ curl -v -X POST http://localhost:8000/api/items \
     - 404 Item cannot be found
 
 ```bash
-curl -v -X POST http://localhost:8000/api/items/{ID} \
+curl -v -X PUT http://localhost:8000/api/items/{ID} \
   -H 'Authorization: Bearer AUTHTOKEN' \
   -H 'Content-Type: application/json' \
   -d '{
