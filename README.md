@@ -1,5 +1,5 @@
 # REST API Demo with Laravel
-This is a simple demonstration of test-driven development of a REST API with Laravel 8.
+This is a simple demonstration of test-driven development of a REST API with Laravel 8 and 9.
 
 ## A simple shopping list API
 - Register a user with email and password
@@ -129,19 +129,26 @@ It is assumed that you are familiar with git, Laravel and MySQL setup and usage.
 
 ### Requirements
 - Git
-- PHP 7.3+ (with mysqli and pdo_mysql)
 - MySQL 5.7+
 - Composer
+- PHP 7.3+ (with mysqli and pdo_mysql) for Laravel 8
+- PHP 8.0+ (with mysqli and pdo_mysql) for Laravel 9
 
 ### Steps
 1. Download the project to your preferred folder:
+- For Laravel 8
+```
+git clone -b v1.0 https://github.com/firatio/laravel-rest-api-demo.git
+```
+
+- For Laravel 9
 ```
 git clone https://github.com/firatio/laravel-rest-api-demo.git
 ```
 
-2. Create a MySQL database for the application
+1. Create a MySQL database for the application
  
-3. Go to the project folder and install Laravel by running:
+2. Go to the project folder and install Laravel by running:
 ```
 composer install
 ```
