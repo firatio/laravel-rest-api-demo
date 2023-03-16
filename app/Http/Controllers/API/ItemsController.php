@@ -50,12 +50,14 @@ class ItemsController extends Controller
 			]);
 
 			$user_id = auth()->user()->id;
-			//$user = DB::table('users')->where('id', $user_id)->first();
-			//if($user == null) throw new \Exception('INVALID FOREIGN ID');
 		
+            // create the item
             $item = new Item(request(['name', 'notes']));
             $item->user_id = $user_id;
             $item->save();
+
+            // reload to impose ordered structure on the item
+            $item = Item::findOrFail($item->id);
 
             return response()->json($item, 201);
         } catch (Exception $e) {

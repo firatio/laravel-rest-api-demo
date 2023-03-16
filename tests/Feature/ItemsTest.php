@@ -123,12 +123,16 @@ class ItemsTest extends TestCase
             ->assertStatus(201)
             ->assertJsonStructure(['id', 'name', 'notes']);
 
-        $responseContent = json_decode($response->getContent());
-        $id = $responseContent->id;
+        // assert that the order is correct
+        $responseContent = json_decode($response->getContent(), true);
+        $actualKeys = array_keys($responseContent);
+        $expectedKeys = ['id', 'user_id', 'name', 'notes'];
+        $this->assertEquals($expectedKeys, array_slice($actualKeys, 0, 4));
 
         $items = Item::where('user_id', $this->user1->id)->get();
         $this->assertEquals(count($this->user1_items) + 1, count($items));
 
+        $id = $responseContent['id'];
         $item = Item::findOrFail($id);
         $this->assertEquals($this->user1->id, $item->user_id);
         $this->assertEquals($payload['name'], $item->name);
