@@ -57,9 +57,7 @@ class ItemsController extends Controller
             $item->user_id = $user_id;
             $item->save();
 
-            return response()->json([
-                'id' => $item->id
-            ], 201);
+            return response()->json($item, 201);
         } catch (Exception $e) {
             return response()->json([
                 'error' => 'Invalid request'
