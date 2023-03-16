@@ -121,7 +121,7 @@ class ItemsTest extends TestCase
         $response = $this->withHeaders(['Authorization' => "Bearer $token"])
             ->postJson('api/items', $payload)
             ->assertStatus(201)
-            ->assertJsonStructure(['id']);
+            ->assertJsonStructure(['id', 'name', 'notes']);
 
         $responseContent = json_decode($response->getContent());
         $id = $responseContent->id;
