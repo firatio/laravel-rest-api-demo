@@ -77,7 +77,7 @@ curl -v -X POST http://localhost:8000/api/login \
 
 ### Items
 - POST api/items
-    - 201 Success, return ID of the item
+    - 201 Success, return the newly created item
     - 401 User is not authenticated
     - 400 Validation failed
 
